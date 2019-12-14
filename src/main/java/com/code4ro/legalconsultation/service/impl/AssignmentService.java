@@ -40,7 +40,7 @@ public class AssignmentService {
     public Assignment approve(final UUID assigmentId) {
         final ApplicationUser currentUser = currentUserService.getCurrentUser();
         if(currentUser == null || currentUser.getUser().getRole() != UserRole.ADMIN)
-            throw new throw new LegalValidationException("comment.Unauthorized.user", HttpStatus.BAD_REQUEST);
+            throw new LegalValidationException("comment.Unauthorized.user", HttpStatus.BAD_REQUEST);
 
         Optional<Assignment> optional = assignmentRepository.findById(assigmentId);
         if(optional.isPresent()){
